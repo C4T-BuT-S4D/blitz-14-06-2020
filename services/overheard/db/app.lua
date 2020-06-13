@@ -4,7 +4,7 @@
 clock = require('clock')
 uuid = require('uuid')
 
-key = uuid()
+key = uuid.str()
 
 box.cfg {
    listen = 3301
