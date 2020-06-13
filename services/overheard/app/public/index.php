@@ -163,7 +163,7 @@ $app->patch('/api/posts/{post}', function (Request $request, Response $response,
         return jsonError($response, "Not found", 404);
     }
 
-    assert($post[1] == $_SESSION['user'], "Вы не можете редактировать запись ${post[1]}");
+    assert($post[1] == $_SESSION['user'], "Вы не можете редактировать запись");
     assert($post[3] == true, "Вы не можете редактировать опубликованную запись");
 
     $body = $request->getParsedBody();
@@ -190,7 +190,7 @@ $app->get('/api/posts/{post}/token', function (Request $request, Response $respo
         return jsonError($response, "Not found", 404);
     }
 
-    assert($post[1] == $_SESSION['user'], "Вы не можете получить токен для записи ${post[1]}");
+    assert($post[1] == $_SESSION['user'], "Вы не можете получить токен для записи");
     assert($post[3] == true, "Вы не можете поделиться опубликованной записью");
     $token = $db->call('generateToken', $post[0]);
 
