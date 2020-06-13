@@ -1,4 +1,5 @@
 import requests
+import random
 from checklib import *
 
 PORT = 6091
@@ -59,8 +60,13 @@ class CheckMachine:
         con = home + work
 
         seed = []
+        rnd = 0
+        cnt = 0
         for i in con:
-            seed += list(bin(ord(i) ^ 0x3c)[2:].zfill(8))
+            if cnt % 2 == 0:
+                rnd = random.randint(0, 255)
+            cnt += 1
+            seed += list(bin(ord(i) ^ rnd)[2:].zfill(8))
 
         for i in range(0, 4):
             res = 0
@@ -131,9 +137,9 @@ class CheckMachine:
             r2 ^= www[i] ^ ord(w[i])
         self.c.assert_eq(r2, 0, 'Could not verify code', status)
 
-        con = hhh + www
+        con = h + w
         for i in range(4):
             r = 0
             for j in range(i, len(con), 4):
-                r ^= con[j]
+                r ^= ord(con[j])
             self.c.assert_eq(r, itt[i], 'Could not verify code', status)

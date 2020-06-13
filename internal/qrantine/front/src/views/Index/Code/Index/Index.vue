@@ -169,11 +169,11 @@ export default {
                 return;
             }
 
-            let con = hhh.concat(www);
+            let con = this.work + this.home;
             for (let i = 0; i < 4; i += 1) {
                 let r = 0;
                 for (let j = i; j < con.length; j += 4) {
-                    r ^= con[j];
+                    r ^= con.charCodeAt(j);
                 }
                 if (r !== itt[i]) {
                     this.result = false;

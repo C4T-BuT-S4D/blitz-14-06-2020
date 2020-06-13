@@ -2,7 +2,6 @@
 
 declare -A VULNS
 VULNS=(
-  [divnik]=2
   [overheard]=2
 )
 

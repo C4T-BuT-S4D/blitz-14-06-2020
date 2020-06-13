@@ -49,8 +49,14 @@ export default {
             let con = home + work;
 
             let seed = [];
-            for (let i of con) {
-                let bn = (i.charCodeAt(0) ^ 0x3c).toString(2).padStart(8, '0');
+            let cnt = 0;
+            const arr = new Uint8Array(1);
+            for (const i of con) {
+                if (cnt % 2 === 0) {
+                    window.crypto.getRandomValues(arr);
+                }
+                cnt += 1;
+                let bn = (i.charCodeAt(0) ^ arr[0]).toString(2).padStart(8, '0');
                 for (let j of bn) {
                     seed.push(parseInt(j, 10));
                 }
