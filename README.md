@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/C4T-BuT-S4D/blitz-14-06-2020.svg?branch=master)](https://travis-ci.com/C4T-BuT-S4D/blitz-14-06-2020)
+
 # C4tty Blitz #2
 
 The contest was held on June 14, 2020.
